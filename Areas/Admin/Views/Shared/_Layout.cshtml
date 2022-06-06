@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Админ панель</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/saki.css">
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-dark bg-white" style="width: 280px;">
+        <a href="/Admin/Task" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-4 text-black">Админ панель</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link text-black" href="/Admin/Jobs">Работы</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link text-black" href="/Admin/Task">Задания</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link text-black" href="/Admin/Marks">Оценки</a>
+            </li>
+            <hr>
+            <li class="nav-item">
+                <a href="/Account/Profile" class="nav-link text-black">Профиль</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Электронный практикум "Операционные системы"</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/ckeditor")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

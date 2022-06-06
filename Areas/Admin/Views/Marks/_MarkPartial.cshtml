@@ -1,0 +1,21 @@
+﻿@model Praktikum.Models.ViewModels.Marks.MarksVM
+
+@using (Html.BeginForm("MarkEdit", "Marks", FormMethod.Post))
+{
+    <td>
+        <input type="hidden" name="userId" id="usetId" value="@Model.UserId" />
+        <input type="hidden" name="jobId" id="jobId" value="@Model.JobId" />
+        <input type="number" name="mark" min="2" max="5" value="@Model.Mark" />
+    </td>
+    <td>
+        <input type="submit" value="Изменить" class="btn" />
+    </td>
+        
+}
+
+    
+    
+    
+    
+
+

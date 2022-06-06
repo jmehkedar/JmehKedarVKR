@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Marks.UserAnswerVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 align="center">Оценки</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Работа
+        </th>
+        <th>
+            Фаил
+        </th>
+        <th>
+            Оценка
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    @Html.Action("UserInfoPartial", "Marks", new { userId = $"{item.UserId}", jobId = $"{item.JobId}" });
+    <td>
+        @Html.ActionLink("Download", "Download", new { userId = $"{item.UserId}", jobId = $"{item.JobId}" });
+        
+    </td>    
+    @Html.Action("MarkPartial", "Marks", new { userId = $"{item.UserId}", jobId = $"{item.JobId}" });
+
+</tr>
+}
+
+</table>

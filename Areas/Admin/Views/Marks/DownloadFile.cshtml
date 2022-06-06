@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Marks.UserAnswerVM>
+
+@{
+    ViewBag.Title = "DownloadFile";
+}
+
+<h2>Download File</h2>
+
+@Html.ActionLink("Download", "Marks", new { userId = $"{Model.UserId}", jobId = $"{Model.JobId}" });

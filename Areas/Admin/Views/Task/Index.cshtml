@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Task.TaskVM>
+
+@{
+    ViewBag.Title = "Task";
+}
+
+<h2 align="center">Задания</h2>
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Номер задания
+        </th>
+        <th>
+            Название задания
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "EditTask", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "DeleteTask", new { id = item.Id }, new { @class = "delete" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts
+{
+
+    <script>
+        //Подтвержение удаления
+        $(function () {
+            $("a.delete").click(function ()
+            {
+                if (!confirm("Подтвердить удаление работы")) return false;
+            });
+        });
+    </script>
+
+}
+<center>
+    <p>
+        @*<input type="submit" value="Войти" class="btn btn-success" style="background-color:cornflowerblue; border-color:aliceblue" />
+        &nbsp; @Html.ActionLink("Регистрация", "Registration", "Account", new { @class = "btn" })
+
+        @Html.ActionLink("Создать новое задание", "AddTask", "", new { @class = "btn btn-success" })*@
+        <a class="btn btn-success" style="background-color:cornflowerblue; border-color:aliceblue" href="/Admin/Task/AddTask?Length=0" >Создать новое задание</a>
+    </p>
+    </center>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Jobs.JobsVM>
+
+@{
+    ViewBag.Title = "Jobs";
+}
+
+<h2 align="center">Работы</h2>
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success" >
+        @TempData["SM"]
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Название работы
+        </th>
+        <th>
+            Порядковый номер работы
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sort)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "EditJob", new { id = item.Id }) |
+            @Html.ActionLink("Удалить", "DeleteJob", new { id = item.Id }, new {@class = "delete" })
+        </td>
+</tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Создать новую", "AddJob", "", new { @class = "btn btn-success" })
+</p>
+@section Scripts
+{
+
+    <script>
+        //Подтвержение удаления
+        $(function () {
+            $("a.delete").click(function ()
+            {
+                if (!confirm("Подтвердить удаление работы")) return false;
+            });
+        });
+    </script>
+    
+}

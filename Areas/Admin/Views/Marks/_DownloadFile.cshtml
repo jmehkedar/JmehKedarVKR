@@ -1,0 +1,5 @@
+﻿@model Praktikum.Models.ViewModels.Marks.DownloadFileVM
+
+<td>
+    @Html.ActionLink("Download", "Marks", new { userId = $"{Model.UserId}", jobId = $"{Model.JobId}" });
+</td>
