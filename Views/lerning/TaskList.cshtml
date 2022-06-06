@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Task.TaskVM>
+
+
+
+<table>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                <a class="nav-link text-black" href="/lerning/OpenTask/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+            </td>
+
+        </tr>
+    }
+
+</table>

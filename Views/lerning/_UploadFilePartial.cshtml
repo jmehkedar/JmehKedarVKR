@@ -1,0 +1,23 @@
+﻿@model Praktikum.Models.ViewModels.Task.UploadFileVM
+
+@using (Html.BeginForm("UploadFile", "lerning", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+
+
+
+
+    <div class="fallback">
+        <input type="hidden" name="jobId" id="jobId" value="@Model.JobId" />
+        <input type="hidden" name="userId" id="userId" value="@Model.UserId" />
+
+        <input type="file" name="file" multiple="" />
+
+        <input type="submit" value="Upload" />
+    </div>
+
+}
+
+
+

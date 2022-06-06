@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Jobs.JobsVM>
+
+@*<table class="table">
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <a class="nav-link text-black" href="/lerning/OpenJob/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+    </td>
+            <td>
+                @Html.Action("TaskPartial", "lerning", new { id = $"{item.Id}" })
+    </td>
+        </tr>
+    }
+
+    </table>*@
+<div class="carousel-inner">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card mb-3" style="width: 20rem;">
+                    @*<img src="https://i.ibb.co/QFYG3GD/5gb-Es-VFGx0-M-removebg-preview.png" class="card-img-top" alt="CLI">*@
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        @*<p class="card-text">@item.</p>*@
+
+                        <a href="/lerning/TaskList/@item.Id" class="btn btn-primary">Приступить</a>
+                        <a class="nav-link text-black" href="/lerning/OpenJob/@item.Id">Выгрузить отчет</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

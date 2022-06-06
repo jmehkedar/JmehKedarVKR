@@ -1,0 +1,23 @@
+﻿@model Praktikum.Models.ViewModels.Task.TaskVM
+
+@{
+    ViewBag.Title = "OpenTask";
+}
+    <link rel="stylesheet" href="~/Content/saki.css">
+<style>
+    .layer2 {
+        margin-left: 20%; /* Отступ слева */
+        padding: 10px; /* Поля вокруг текста */
+</style>
+    <body>
+
+
+        <h1 class="display-6 layer2">@Html.DisplayFor(model => model.Title)</h1>
+        <div class="container-xxl mb-5 pt-5 article-content-wrapper">
+            <div class="layer2">
+                @Html.DisplayFor(model => model.Title)
+                @Html.Raw(Model.Body)
+</div>
+            @Html.ActionLink("Назад", "Index")
+        </p>
+    </body>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Praktikum.Models.ViewModels.Marks.MarksVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 align ="center">Табель оценок</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Номер в списке
+        </th>
+        <th>
+            Номер практической работы
+        </th>
+        <th>
+            Оценка
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mark)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>
